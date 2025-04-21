@@ -10,4 +10,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'atu',
+    loadComponent: () => import('./atu/atu.page').then( m => m.AtuPage)
+  },
 ];
