@@ -1,3 +1,21 @@
-<p>
-  rating works!
-</p>
+<ion-card class="ion-padding">
+<ion-card-header>
+  <ion-card-title>Rate ATU's ToDo App</ion-card-title>
+</ion-card-header>
+
+<ion-card-content>
+    <div class=" rating-button">
+
+        <!--Like Button-->
+        <ion-button color="success" expand="block" (click)="likeClicked()">
+            Like ({{like}})
+        </ion-button>
+
+        <!--Dislike button-->
+        <ion-button color="danger" expand="block" (click)="dislikeClicked()">
+            Dislike ({{dislike}})
+        </ion-button>
+
+    </div>
+</ion-card-content>
+</ion-card>
