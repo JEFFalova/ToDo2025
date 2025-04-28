@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>ToDo Task Manager</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleTheme()">Settings</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- adding new todo -->
+  <ion-item>
+    <ion-input [(ngModel)]="todoTitle" placeholder="Enter a new to-do" fill="outline"></ion-input>
+    <ion-button (click)="addTodo()" color="primary">Add</ion-button>
+  </ion-item>
+
+  <!-- List of todos -->
+  <ion-list>
+    <ion-item *ngFor="let todo of todos">
+
+      <!-- Checkbox to toggle completion -->
+      <ion-checkbox slot="start"[(ngModel)]="todo.completed"(ionChange)="toggleTodoCompletion(todo)"></ion-checkbox>
+
+      <!-- Task title, with line if completed -->
+      <ion-label>
+        <div [style.text-decoration]="todo.completed ? 'line-through' : 'none'">
+          {{ todo.title }}
+        </div>
+      </ion-label>
+
+      <!-- Edit button -->
+      <ion-button fill="clear" size="small" color="medium" (click)="startEdit(todo)">Edit </ion-button>
+
+      <!-- Delete button -->
+      <ion-button fill="clear" size="small" color="danger" (click)="deleteTodo(todo)"> Delete</ion-button>
+
+      <!-- Complete button -->
+      <ion-button 
+        fill="clear" size="small" color="success" (click)="markAsCompleted(todo)" [disabled]="todo.completed">Complete</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Edit mode input -->
+  <ion-item *ngIf="editingTodo"> <!--content to display if editing is done/true-->
+    <ion-input [(ngModel)]="editingTitle" placeholder="Edit task title" fill="outline"></ion-input>
+    <ion-button color="success" (click)="saveEdit()">Save</ion-button>
+    <ion-button color="medium" (click)="cancelEdit()">Cancel</ion-button>
+  </ion-item>
+
+</ion-content>

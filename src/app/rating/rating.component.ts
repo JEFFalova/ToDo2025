@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonButton,} from "@ionic/angular/standalone";
+import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonButton, IonIcon } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-rating',

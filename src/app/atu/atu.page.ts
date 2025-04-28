@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonImg, IonButton } from '@ionic/angular/standalone';
-
+import {Browser} from '@capacitor/browser'
 
 @Component({
   selector: 'app-atu',
@@ -12,8 +12,8 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton,
   imports: [IonButton, IonImg, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class AtuPage implements OnInit {
-  goToSite() {
-    window.open('https://www.atu.ie/', '_blank');
+  OpenBrowser() {
+    Browser.open({url: 'https://www.atu.ie/'})
   }
 
   constructor() { }

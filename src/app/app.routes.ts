@@ -14,4 +14,8 @@ export const routes: Routes = [
     path: 'atu',
     loadComponent: () => import('./atu/atu.page').then( m => m.AtuPage)
   },
+  {
+    path: 'to-do',
+    loadComponent: () => import('./to-do/to-do.page').then( m => m.ToDoPage)
+  },
 ];
